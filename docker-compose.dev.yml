@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  web:
+    image: node:15.8-alpine3.11
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/app"
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+    working_dir: /app
+    command: sh -c "cd /app; yarn install; yarn run dev --host 0.0.0.0"
